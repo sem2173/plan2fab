@@ -8,6 +8,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
+import dj_database_url
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -36,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dokumentor',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,21 +59,18 @@ WSGI_APPLICATION = 'plan2fab.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
-
-import dj_database_url
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.',
+    }
+}
 
 try:
     database_url = os.environ["DATABASE_URL"]
 except KeyError:
-    database_url = "postgresql://localhost/plan2fab"
+    database_url = "postgresql://apedec:highway2fablab@localhost/plan2fab"
 
-DATABASES = { 'default': dj_database_url.config() }
+DATABASES = DATABASES = { 'default' : dj_database_url.config(default=database_url) }
 
 
 # Internationalization
