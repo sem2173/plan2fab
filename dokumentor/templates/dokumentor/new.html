@@ -1,5 +1,6 @@
-<%inherit file="layout.html"/>
+{% extends "dokumentor/base_dokumentor.html" %}
 
+{% block content %}
 <p> new project </p>
 <form method="post" action="{% url 'projects:create' %}">
   <p>
@@ -27,4 +28,4 @@
   <input type="submit"/>
   </p>
 </form>
-
+{% endblock content %}

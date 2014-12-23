@@ -1,0 +1,21 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Plan 2 Fab - Documentation de projet de fabrication</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'dokumentor/style.css' %}" />
+  </head>
+  <body>
+    <header>
+      <h1>Plan 2 Fab<h1>
+          <img src="${request.static_url('plan2fab:static/ecodesignfablab.jpg')}" alt="écodesignfablab"/>
+    </header>
+    <main>
+      {% block content %}{% endblock content %}
+    </main>
+  </body>
+</html>
+
+

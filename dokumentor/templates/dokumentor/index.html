@@ -1,7 +1,6 @@
-{% load staticfiles %}
+{% extends "dokumentor/base_dokumentor.html" %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'dokumentor/style.css' %}" />
-
+{% block content %}
 {% if projects %}
 <ul>
   {% for project in projects %}
@@ -13,3 +12,4 @@
 {% endif %}
 
 <a href='new'>Documenter un projet</a>
+{% endblock content %}
