@@ -1,0 +1,9 @@
+{% if projects %}
+<ul>
+  {% for project in projects %}
+  <li><a href="/dokumentor/project/{{ project.id }}/">{{ project.name }}</a> [{{ project.created_at }}]</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No Projects are available.</p>
+{% endif %}

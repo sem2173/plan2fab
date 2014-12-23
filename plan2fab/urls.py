@@ -6,5 +6,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'plan2fab.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^dokumentor/', include('dokumentor.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
