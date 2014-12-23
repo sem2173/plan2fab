@@ -4,7 +4,6 @@ from dokumentor import views
 
 urlpatterns = patterns('',
         url(r'^$', views.index, name='index'),
-        url(r'new', views.name_step, name='name_step'),
-        url(r'create', views.create, name='create'),
+        url(r'name_step', views.name_step, name='name_step'),
         )
 
