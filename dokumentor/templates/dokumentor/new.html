@@ -1,0 +1,30 @@
+<%inherit file="layout.html"/>
+
+<p> new project </p>
+<form method="post" action="{% url 'projects:create' %}">
+  <p>
+  <label>
+    Nom
+    <br>
+    <input type="text" name="name" />
+  </label>
+  </p>
+  <p>
+  <label>
+    Description
+    <br>
+    <textarea name="description"></textarea>
+  </label>
+  </p>
+  <p>
+  <label>
+    Plan
+    <br>
+    <input type="file" name="plan" />
+  </label>
+  </p>
+  <p>
+  <input type="submit"/>
+  </p>
+</form>
+

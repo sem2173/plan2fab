@@ -9,5 +9,10 @@ def index(request):
 
 
 def name_step(request):
-    return HttpResponse("dokumentor name step")
+    return render(request, 'dokumentor/new.html')
 
+
+def create(request):
+    projects = Project.objects.order_by('created_at')
+    context = { 'projects': projects, }
+    return render(request, 'dokumentor/index.html', context)
