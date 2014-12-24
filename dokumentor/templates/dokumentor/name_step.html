@@ -6,7 +6,8 @@
   {% csrf_token %}
   {{ form.as_p }}
   <p>
-  <input type="submit"/>
+  <input type="submit" value="Créer ce projet"/>
+  <a href="{% url 'projects:index' %}">retour</a>
   </p>
 </form>
 {% endblock content %}
