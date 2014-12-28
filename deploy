@@ -1,0 +1,6 @@
+#!/bin/sh
+
+git pull && \
+./manage.py test && \
+git push && \
+git push appsdeck master
