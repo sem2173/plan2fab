@@ -7,3 +7,8 @@ class NameStepForm(ModelForm):
         model = Project
         fields = ['name', 'description']
 
+class BuildStepForm(ModelForm):
+    class Meta:
+        model = Project
+        fields = ['duration']
+

@@ -4,7 +4,9 @@
 {% if projects %}
 <ul>
   {% for project in projects %}
-  <li><a href="/dokumentor/project/{{ project.id }}/">{{ project.name }}</a> [{{ project.created_at }}]</li>
+  <li><a href="/dokumentor/project/{{ project.id }}/">{{ project.name }}</a> [{{ project.created_at }}]
+    <a href="{% url 'projects:build_step' %}">How to build</a>
+  </li>
   {% endfor %}
 </ul>
 {% else %}
