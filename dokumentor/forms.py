@@ -10,5 +10,4 @@ class NameStepForm(ModelForm):
 class BuildStepForm(ModelForm):
     class Meta:
         model = Project
-        fields = ['furnitures']
-
+        fields = ['furnitures', 'duration']
