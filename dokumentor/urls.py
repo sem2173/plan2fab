@@ -7,5 +7,5 @@ urlpatterns = patterns('',
         url(r'^projects/(\d+)/$', views.view_project, name='view_project'),
         url(r'name_step', views.name_step, name='name_step'),
         url(r'build_step', views.build_step, name='build_step'),
+        url(r'better_description', views.better_description, name='better_description'),
         )
-

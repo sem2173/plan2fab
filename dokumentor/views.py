@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from dokumentor.models import Project
-from dokumentor.forms import NameStepForm, BuildStepForm
+from dokumentor.forms import NameStepForm, BuildStepForm, BetterDescriptionForm
 
 def index(request):
     projects = Project.objects.order_by('created_at')
@@ -26,3 +26,7 @@ def build_step(request):
 def view_project(request, id):
     project = Project.objects.get(id=id)
     return render(request, 'dokumentor/project.html', {'project': project})
+
+def better_description(request):
+    form = BetterDescriptionForm()
+    return render(request, 'dokumentor/better_description.html', {'form': form})
