@@ -1,0 +1,13 @@
+{% extends "dokumentor/base_dokumentor.html" %}
+
+{% block content %}
+<p>Ajouter une photo au projet</p>
+<form method="post" action="" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <p>
+  <input type="submit" value="Ajouter la photo"/>
+  <a href="{% url 'projects:index' %}">Retour au tableau de bord</a>
+  </p>
+</form>
+{% endblock content %}

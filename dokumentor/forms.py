@@ -16,3 +16,8 @@ class BetterDescriptionForm(ModelForm):
     class Meta:
         model = Project
         fields = ['history', 'tags']
+
+class PhotoStepForm(ModelForm):
+    class Meta:
+        model = Project
+        fields = ['photo']
