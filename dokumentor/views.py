@@ -1,7 +1,12 @@
 from django.shortcuts import render, redirect
 
 from dokumentor.models import Project
-from dokumentor.forms import NameStepForm, BuildStepForm, BetterDescriptionForm
+from dokumentor.forms import (
+    NameStepForm,
+    BuildStepForm,
+    BetterDescriptionForm,
+    PhotoStepForm,
+)
 
 def index(request):
     projects = Project.objects.order_by('created_at')
@@ -22,6 +27,16 @@ def name_step(request):
 def build_step(request):
     form = BuildStepForm()
     return render(request, 'dokumentor/build_step.html', {'form': form})
+
+def photo_step(request, id):
+    project = Project.objects.get(id=id)
+    if request.method == 'POST':
+        form = PhotoStepForm(request.POST, request.FILES, instance=project)
+        new_photo = form.save()
+        return redirect('projects:index')
+    else:
+        form = PhotoStepForm(instance=project)
+    return render(request, 'dokumentor/photo_step.html', {'form': form})
 
 def view_project(request, id):
     project = Project.objects.get(id=id)

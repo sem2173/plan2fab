@@ -7,6 +7,7 @@
   <li><a href="/dokumentor/projects/{{ project.id }}/" >{{ project.name }}</a> [{{ project.created_at }}]
     <a href="{% url 'projects:build_step' %}">Comment le fabriquer ?</a>
     <a href="/dokumentor/better_description/{{ project.id }}/" >Améliorer la description</a>
+    <a href="/dokumentor/photo_step/{{ project.id }}/" >Ajouter des photos</a>
   </li>
   {% endfor %}
 </ul>
