@@ -27,6 +27,12 @@ def view_project(request, id):
     project = Project.objects.get(id=id)
     return render(request, 'dokumentor/project.html', {'project': project})
 
-def better_description(request):
-    form = BetterDescriptionForm()
+def better_description(request, id):
+    project = Project.objects.get(id=id)
+    if request.method == 'POST':
+        form = BetterDescriptionForm(request.POST, instance=project)
+        new_tags = form.save()
+        return redirect('projects:index')
+    else:
+        form = BetterDescriptionForm(instance=project)
     return render(request, 'dokumentor/better_description.html', {'form': form})
