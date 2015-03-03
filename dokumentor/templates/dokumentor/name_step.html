@@ -1,13 +1,13 @@
 {% extends "dokumentor/base_dokumentor.html" %}
 
 {% block content %}
-<p> new project </p>
+<p>Nouveau projet</p>
 <form method="post" action="{% url 'projects:name_step' %}">
   {% csrf_token %}
   {{ form.as_p }}
   <p>
   <input type="submit" value="Créer ce projet"/>
-  <a href="{% url 'projects:index' %}">retour</a>
+  <a href="{% url 'projects:index' %}">Retour au tableau de bord</a>
   </p>
 </form>
 {% endblock content %}

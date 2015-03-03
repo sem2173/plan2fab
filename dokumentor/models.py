@@ -12,7 +12,7 @@ class Project(models.Model):
     history = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    tags = TaggableManager()    
+    tags = TaggableManager()
 
     def __str__(self):
         return self.name

@@ -4,8 +4,9 @@
 {% if projects %}
 <ul>
   {% for project in projects %}
-  <li><a href="/dokumentor/projects/{{ project.id }}/">{{ project.name }}</a> [{{ project.created_at }}]
-    <a href="{% url 'projects:build_step' %}">How to build</a>
+  <li><a href="/dokumentor/projects/{{ project.id }}/" >{{ project.name }}</a> [{{ project.created_at }}]
+    <a href="{% url 'projects:build_step' %}">Comment le fabriquer ?</a>
+    <a href="/dokumentor/better_description/{{ project.id }}/" >Améliorer la description</a>
   </li>
   {% endfor %}
 </ul>

@@ -15,4 +15,4 @@ class BuildStepForm(ModelForm):
 class BetterDescriptionForm(ModelForm):
     class Meta:
         model = Project
-        fields = ['history']
+        fields = ['history', 'tags']

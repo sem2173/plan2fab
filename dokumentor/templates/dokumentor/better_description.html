@@ -2,7 +2,7 @@
 
 {% block content %}
 <p> Better Description </p>
-<form method="post" action="{% url 'projects:better_description' %}">
+<form method="post" action="">
   {% csrf_token %}
   {{ form.as_p }}
   <p>
