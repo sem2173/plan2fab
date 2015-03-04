@@ -24,7 +24,7 @@ def name_step(request):
         form = NameStepForm()
     return render(request, 'dokumentor/name_step.html', {'form': form})
 
-def build_step(request):
+def build_step(request, id):
     form = BuildStepForm()
     return render(request, 'dokumentor/build_step.html', {'form': form})
 
