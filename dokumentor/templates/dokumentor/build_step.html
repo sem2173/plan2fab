@@ -2,7 +2,7 @@
 
 {% block content %}
 <p> How to build project </p>
-<form method="post" action="{% url 'projects:build_step' %}">
+<form method="post" action="">
   {% csrf_token %}
   {{ form.as_p }}
   <p>
