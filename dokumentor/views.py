@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.exceptions import ObjectDoesNotExist
 
 from dokumentor.models import Project
 from dokumentor.forms import (
@@ -25,7 +26,11 @@ def name_step(request):
     return render(request, 'dokumentor/name_step.html', {'form': form})
 
 def build_step(request, id):
-    project = Project.objects.get(id=id)
+    try:
+        project = Project.objects.get(id=id)
+    except ObjectDoesNotExist:
+         return redirect('projects:index')
+
     if request.method == 'POST':
         BuildStepForm(request.POST, instance=project).save()
         return redirect('projects:index')
