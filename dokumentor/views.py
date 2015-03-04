@@ -25,8 +25,13 @@ def name_step(request):
     return render(request, 'dokumentor/name_step.html', {'form': form})
 
 def build_step(request, id):
-    form = BuildStepForm()
-    return render(request, 'dokumentor/build_step.html', {'form': form})
+    project = Project.objects.get(id=id)
+    if request.method == 'POST':
+        BuildStepForm(request.POST, instance=project).save()
+        return redirect('projects:index')
+    else:
+        form = BuildStepForm(instance=project)
+        return render(request, 'dokumentor/build_step.html', {'form': form})
 
 def photo_step(request, id):
     project = Project.objects.get(id=id)
