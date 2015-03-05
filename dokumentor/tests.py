@@ -23,3 +23,12 @@ class ProjectTests(TestCase):
         response = self.client.get(reverse('projects:build_step', args=[42]))
 
         self.assertRedirects(response, reverse('projects:index'), status_code=302, target_status_code=200)
+
+    def test_can_access_name_step(self):
+        response = self.client.get(reverse('projects:name_step'))
+        self.assertContains(response,'', status_code=200)
+
+    def test_modify_name_step(self):
+        project = Project.objects.create(name="SomeThing")
+        response = self.client.get(reverse('projects:name_step', args=[project.id]))
+        self.assertContains(response, project.name, status_code=200)

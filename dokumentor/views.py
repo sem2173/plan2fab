@@ -15,21 +15,26 @@ def index(request):
     return render(request, 'dokumentor/index.html', context)
 
 
-def name_step(request):
+def name_step(request, id=None):
+    try:
+        project = Project.objects.get(id=id)
+    except ObjectDoesNotExist:
+        project = Project()
+
     if request.method == 'POST':
         form = NameStepForm(request.POST)
         new_project = form.save()
         return redirect('projects:index')
 
     else:
-        form = NameStepForm()
+        form = NameStepForm(instance=project)
     return render(request, 'dokumentor/name_step.html', {'form': form})
 
 def build_step(request, id):
     try:
         project = Project.objects.get(id=id)
     except ObjectDoesNotExist:
-         return redirect('projects:index')
+        return redirect('projects:index')
 
     if request.method == 'POST':
         BuildStepForm(request.POST, instance=project).save()
