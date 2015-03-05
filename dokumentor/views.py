@@ -22,7 +22,7 @@ def name_step(request, id=None):
         project = Project()
 
     if request.method == 'POST':
-        form = NameStepForm(request.POST)
+        form = NameStepForm(request.POST, instance=project)
         new_project = form.save()
         return redirect('projects:index')
 

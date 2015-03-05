@@ -28,7 +28,15 @@ class ProjectTests(TestCase):
         response = self.client.get(reverse('projects:name_step'))
         self.assertContains(response,'', status_code=200)
 
-    def test_modify_name_step(self):
+    def test_access_name_step_existant_project(self):
         project = Project.objects.create(name="SomeThing")
         response = self.client.get(reverse('projects:name_step', args=[project.id]))
         self.assertContains(response, project.name, status_code=200)
+
+    def test_can_modify_name(self):
+        project = Project.objects.create(name='something', description='blabla')
+        response = self.client.post(reverse('projects:name_step', args=[project.id]),
+            {'name': 'another thing', 'description': project.description})
+        self.assertRedirects(response, reverse('projects:index'), status_code=302, target_status_code=200)
+        project = Project.objects.get(id=project.id)
+        self.assertEqual("another thing", project.name)
